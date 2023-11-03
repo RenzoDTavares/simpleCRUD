@@ -1,0 +1,38 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: SSH into EC2 and execute tests
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ec2-user/seleniumCSharp/
+            nohup dotnet test SeleniumProject/bin/Debug/net7.0/SeleniumProject.dll > test_output.txt 2>&1 &
+
+      - name: Wait for tests to complete
+        run: sleep 40 # Aguarde um período suficiente para a execução dos testes (aqui, 40 segundos)
+      
+      - name: View test output
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ec2-user/seleniumCSharp/
+            cat test_output.txt
+
