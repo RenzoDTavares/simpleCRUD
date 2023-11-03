@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd /home/ec2-user/seleniumCSharp/
-            nohup dotnet test SeleniumProject/bin/Debug/net7.0/SeleniumProject.dll > test_output.txt 2>&1 &
+            nohup dotnet test > test_output.txt 2>&1 &
 
       - name: Wait for tests to complete
         run: sleep 40 # Aguarde um período suficiente para a execução dos testes (aqui, 40 segundos)
