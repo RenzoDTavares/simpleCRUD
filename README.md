@@ -12,20 +12,3 @@ O "Crud-to-do" é um sistema simples de CRUD projetado para servir como uma apli
 ## Objetivo
 
 Simular um ambiente de desenvolvimento com integração contínua e entrega contínua (CI/CD), garantindo que cada alteração no código seja automaticamente testada e validada.
-
-## Como Contribuir
-
-1. Faça um fork deste repositório.
-2. Crie uma branch para sua feature (`git checkout -b minha-feature`).
-3. Faça suas alterações e commit (`git commit -am 'Adiciona nova feature'`).
-4. Envie a branch para o repositório remoto (`git push origin minha-feature`).
-5. Crie um Pull Request.
-
-## Licença
-
-Este projeto é licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## Contato
-
-Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para abrir uma issue ou enviar um e-mail para [seu-email@example.com](mailto:seu-email@example.com).
-
